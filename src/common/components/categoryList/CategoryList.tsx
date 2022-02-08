@@ -18,7 +18,9 @@ const CategoryList: VFC<ICategoryListProps> = ({ title, items }) => {
             <li key={id} className='collectionItem'>
               <Link to={`categories/${name?.toLowerCase()}`}>
                 <div className='itemContainer hasShadow'>
-                  <img src={image} className='itemImage' alt={name} />
+                  <div className='imageWrapper'>
+                    <img src={image} className='itemImage' alt={name} />
+                  </div>
                   <span className='itemLabel'>{name}</span>
                 </div>
               </Link>

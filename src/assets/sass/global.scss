@@ -96,8 +96,23 @@ body {
       font-size: 0.875rem;
     }
 
-    .itemImage {
-      max-width: 75%;
+    // Trick to maintain an aspect ratio and
+    // prevent content jumping while loading
+    // images
+    .imageWrapper {
+      width: 75%;
+      position: relative;
+      padding-top: calc(256 / 256 * 75%);
+      margin: 0.5rem 0;
+
+      .itemImage {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        transition: transform 200ms;
+      }
     }
   }
 

@@ -36,7 +36,9 @@ const ProductList: VFC<IProductListProps> = ({ title, items }) => {
                     <span className='itemLabel'>{name}</span>
 
                     <div className='itemContainer hasShadow'>
-                      <img src={image} className='itemImage' alt={name} />
+                      <div className='imageWrapper'>
+                        <img src={image} className='itemImage' alt={name} />
+                      </div>
                     </div>
                   </Link>
 
