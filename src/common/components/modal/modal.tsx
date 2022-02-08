@@ -54,7 +54,7 @@ const Modal: FC<ModalProps> = ({ trigger, title, children }) => {
                 <div className='level'>
                   <div className='levelLeft'>{title}</div>
 
-                  <div className='levelRight isNarrow'>
+                  <div className='levelRight'>
                     <button onClick={close}>
                       <XCircleIcon className='close' />
                     </button>

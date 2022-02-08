@@ -94,7 +94,7 @@ const CartPage: VFC = () => {
                     SUBTOTAL ({itemCount} items):
                   </span>
                 </div>
-                <div className='levelRight isNarrow'>
+                <div className='levelRight'>
                   <span className='subtotalValue'>
                     {formatCurrency(cartTotal)}
                   </span>

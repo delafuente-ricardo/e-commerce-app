@@ -17,7 +17,7 @@ const Breadcrumbs: VFC<IBreadcrumbsProps> = ({ items }) => {
         {
           /* Back button */
           items?.length && (
-            <div className='levelLeft isNarrow'>
+            <div className='levelLeft'>
               <button onClick={stepBack} className='backButton'>
                 &lt; Back
               </button>

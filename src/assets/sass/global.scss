@@ -46,10 +46,6 @@ body {
   .levelItem {
     display: flex;
     align-items: center;
-
-    &:not(.isNarrow) {
-      flex: 1;
-    }
   }
 
   .levelLeft {
