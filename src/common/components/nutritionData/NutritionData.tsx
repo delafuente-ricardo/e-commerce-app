@@ -14,7 +14,17 @@ const NutritionData: VFC<INutritionDataProps> = ({ nutritionData }) => {
 
   return (
     <div className={styles.nutritionData}>
-      <h3 className='sectionTitle'>Nutrition</h3>
+      <div className='level test'>
+        <div className='levelLeft'>
+          <h3 className='sectionTitle'>Nutrition</h3>
+        </div>
+        <div className='levelRight'>
+          <span className='servingSize'>
+            Serving Size: {nutritionData.servingSize}
+            {nutritionData.unit}
+          </span>
+        </div>
+      </div>
 
       {/* Nutrition Facts; TODO: Break into separate component */}
       <ul className={styles.nutritionFacts}>
@@ -28,7 +38,7 @@ const NutritionData: VFC<INutritionDataProps> = ({ nutritionData }) => {
             <li key={key} className='nutritionFact'>
               <span className='nutritionFactLabel'>{label}</span>
               <span className='nutritionFactValue'>{`${
-                grams || '-'
+                grams || 0
               }${unit}`}</span>
             </li>
           );

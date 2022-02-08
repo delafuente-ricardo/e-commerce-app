@@ -93,11 +93,13 @@ const useNutritionLabel = (nutritionData: INutritionData) => {
     try {
       setNutrients(
         chartFields.map(({ key, ...nutrient }) => {
-          if (!nutritionData[key as keyof INutritionData]) {
+          const keyValue = nutritionData[key as keyof INutritionData];
+
+          if (!keyValue && keyValue !== 0) {
             throw new Error('Missing label properties!');
           }
 
-          let grams = nutritionData[key];
+          let grams = keyValue;
 
           if (typeof grams !== 'number') {
             grams = Number(grams);
