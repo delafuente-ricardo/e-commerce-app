@@ -2,7 +2,7 @@
 ## About the project
 Food Mart is a fictional platform for online grocery shopping, a theme that has grown tremendously in popularity since the start of Covid. As both a playground & portfolio application, many features have been deliberately over-engineered (while others remain relatively under developed) for testing, learning, and demonstration purposes.
 
-Visit {APP_URL} to see a working version of this application!
+Visit [http//food-mart.netlify.app](http://food-mart.netlify.app) to see a working version of this application!
 
 ### Ideas for the future:
 - Improved navigation
