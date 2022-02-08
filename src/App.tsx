@@ -1,20 +1,23 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './common/components/layout/Header';
 import Footer from './common/components/layout/Footer';
-import CategoryPage from './features/category/CategoryPage';
-import HomePage from './features/home/HomePage';
-import ProductPage from './features/product/ProductPage';
-import CartPage from './features/cart/CartPage';
+import Loader from './common/components/loader/Loader';
 import './app.scss';
+
+const CategoryPage = lazy(() => import('./features/category/CategoryPage'));
+const HomePage = lazy(() => import('./features/home/HomePage'));
+const ProductPage = lazy(() => import('./features/product/ProductPage'));
+const CartPage = lazy(() => import('./features/cart/CartPage'));
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='App'>
-        <div className='wrapper'>
-          <Header />
+    <div className='App'>
+      <div className='wrapper'>
+        <Header />
 
-          <main className='content'>
+        <main className='content'>
+          <Suspense fallback={<Loader />}>
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/categories/:category' element={<CategoryPage />} />
@@ -22,12 +25,12 @@ function App() {
               <Route path='/cart' element={<CartPage />} />
               <Route path='*' element={<Navigate to='/' />} />
             </Routes>
-          </main>
+          </Suspense>
+        </main>
 
-          <Footer />
-        </div>
+        <Footer />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
