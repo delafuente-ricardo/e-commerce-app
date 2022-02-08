@@ -1,0 +1,94 @@
+@import '../../assets/sass/variables';
+
+:global {
+  :local(.cartPage) {
+    .cartItem {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      border-bottom: $dashedBorder;
+      padding: 0.75rem 0;
+
+      &:first-child {
+        border-top-width: 1px;
+      }
+
+      .itemImage {
+        height: 3rem;
+        margin-right: 0.75rem;
+        width: 3rem;
+      }
+
+      .flexGroup {
+        max-width: calc(100% - 12rem);
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .itemName {
+        align-self: start;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .itemWeight {
+        font-size: 0.875em;
+      }
+
+      .clearItem {
+        padding: 0.25rem;
+        color: $danger;
+        font-size: 0.875em;
+        padding-left: 0;
+        align-self: start;
+        cursor: pointer;
+      }
+
+      .itemQty {
+        width: 3rem;
+        text-align: center;
+      }
+
+      .itemPrice {
+        width: 5rem;
+        white-space: nowrap;
+        text-align: right;
+      }
+    }
+
+    .cartSubtotal {
+      padding: 1rem 0 1.25rem;
+      font-size: 1rem;
+
+      .subtotalValue {
+        font-weight: 600;
+      }
+    }
+
+    @media screen and (min-width: $screenMd) {
+      .cartItem {
+        justify-content: space-around;
+
+        .itemImage {
+          height: 4.5rem;
+          margin: 0.5rem 1.5rem 0.5rem 0.75rem;
+          width: 4.5rem;
+        }
+
+        .itemQty {
+          width: 5rem;
+        }
+
+        .itemPrice {
+          width: 7.5rem;
+        }
+      }
+
+      .cartSubtotal {
+        padding: 1.5rem 0;
+      }
+    }
+  }
+}

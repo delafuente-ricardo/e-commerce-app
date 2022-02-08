@@ -1,0 +1,61 @@
+@import '../../../assets/sass/variables.scss';
+
+:global {
+  :local(.searchControl) {
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    .searchField {
+      border: $solidBorder;
+      border-radius: 0.3em;
+      padding: 0.5em 0.75em;
+      width: 100%;
+      outline: none;
+      box-shadow: $boxShadow;
+      font-size: 0.875rem;
+
+      &:focus {
+        border-color: rgba($primary, 0.5);
+        box-shadow: 0 3px 5px rgba($primary, 0.1),
+          0 1px 2px 1px rgba($primary, 0.1);
+      }
+    }
+
+    .searchFieldIcon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+
+      & + .searchField {
+        padding-left: 2.25rem;
+      }
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        fill: #999;
+      }
+    }
+
+    @media screen and (min-width: $screenMd) {
+      .searchField {
+        font-size: 1rem;
+      }
+
+      .searchFieldIcon {
+        left: 1rem;
+
+        & + .searchField {
+          padding-left: 2.75rem;
+        }
+
+        svg {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+    }
+  }
+}

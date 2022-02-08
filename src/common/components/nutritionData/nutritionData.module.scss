@@ -1,0 +1,147 @@
+@import '../../../assets/sass/variables';
+
+:global {
+  :local(.nutritionData) {
+    margin: 0 auto;
+
+    .sectionTitle {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    @media screen and (min-width: $screenMd) {
+      .sectionTitle {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+:global {
+  :local(.nutritionFacts) {
+    margin-bottom: 1rem;
+
+    .nutritionFact {
+      margin: 0 auto;
+      display: flex;
+      font-size: 0.875rem;
+
+      &::after {
+        content: '';
+        flex: 1;
+        margin: 0 0.75em;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: #999;
+        height: 1.05em;
+      }
+
+      .nutritionFactValue {
+        font-weight: 500;
+        order: 3;
+      }
+    }
+
+    @media screen and (min-width: $screenMd) {
+      margin-bottom: 1.5rem;
+      .nutritionFact {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+:global {
+  :local(.chart) {
+    .chartContainer {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .chartTotal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+
+      // Position center
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 50%;
+
+      .chartTotalValue {
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        font-size: 1.25rem;
+        line-height: 1.25;
+      }
+
+      .chartTotalLabel {
+        font-weight: 500;
+        text-transform: lowercase;
+        font-size: 0.875rem;
+      }
+
+      @media screen and (min-width: $screenSm) {
+        .chartTotalValue {
+          font-size: 1.5rem;
+        }
+
+        .chartTotalLabel {
+          font-size: 0.875rem;
+          color: #999;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .legend {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+
+      .legendItem {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+        min-width: 7.5rem;
+
+        &::after {
+          content: '';
+          display: inline-block;
+          z-index: 1;
+          margin: 0.3rem;
+          width: 1em;
+          border-radius: 0.3rem;
+          height: 0.75rem;
+        }
+
+        &[data-type='fat']::after {
+          background: $info;
+        }
+
+        &[data-type='protein']::after {
+          background: $warning;
+        }
+
+        &[data-type='carbs']::after {
+          background: $danger;
+        }
+
+        .legendItemValue {
+          font-weight: 600;
+          font-size: 1.15rem;
+        }
+
+        .legendItemLabel {
+          font-size: 0.875em;
+        }
+      }
+    }
+  }
+}

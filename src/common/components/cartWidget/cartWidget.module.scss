@@ -1,0 +1,187 @@
+@import '../../../assets/sass/variables.scss';
+
+:global {
+  :local(.cartWrapper) {
+    $cartGap: 0.75rem;
+
+    position: relative;
+
+    .cartWidget {
+      display: inline-flex;
+      vertical-align: middle;
+    }
+
+    // Dropdown trigger
+    .cartWidgetIcon {
+      display: inline-flex;
+
+      svg {
+        fill: $secondary;
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+
+      &:hover {
+        svg {
+          fill: $secondaryDark;
+        }
+      }
+
+      .notificationBadge {
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+        top: -25%;
+        right: -25%;
+        background: $primary;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: 0;
+        line-height: 1;
+        font-size: 0.75rem;
+        min-height: 2em;
+        min-width: 2em;
+        text-shadow: $textShadow;
+        font-weight: 600;
+        border: 0.2em solid white;
+      }
+    }
+
+    // Dropdown content
+    .cartDropdown {
+      width: 15rem;
+      position: absolute;
+      z-index: 10;
+      background: white;
+      right: -0.5rem;
+      border: $solidBorder;
+      top: 100%;
+      transform: translateY(0.5rem);
+      box-shadow: $boxShadowMd;
+      border-radius: 0.3rem;
+      padding: $cartGap;
+
+      & > *:not(:last-child) {
+        margin-bottom: $cartGap;
+      }
+    }
+
+    .cartItems {
+      max-height: 10rem;
+      overflow: auto;
+    }
+
+    .cartItem {
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+
+      &:not(:last-child) {
+        margin-bottom: $cartGap;
+      }
+
+      .cartItemImage {
+        border-radius: 0.2rem;
+        height: 2.5rem;
+        margin-right: $cartGap;
+        width: 2.5rem;
+      }
+
+      .cartItemName {
+        flex: 1;
+      }
+
+      .cartItemQty {
+        font-weight: 500;
+
+        &::before {
+          content: 'x';
+          display: inline-block;
+          padding: 0 0.25rem;
+          font-size: 0.875em;
+          color: $secondaryLight;
+        }
+      }
+    }
+
+    .cartSubtotal {
+      text-align: right;
+      padding: 0.5rem 0;
+      border-width: 1px 0;
+      border-color: $borderColor;
+      border-style: dashed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .label {
+        font-size: 0.8rem;
+      }
+
+      .value {
+        font-weight: 600;
+        font-size: 0.875rem;
+      }
+    }
+
+    .cartFooter {
+      button {
+        font-size: 0.875rem;
+      }
+    }
+
+    .emptyCartText {
+      padding: 1rem 0;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+
+    @media screen and (min-width: $screenMd) {
+      $cartGap: 1rem;
+
+      .cartDropdown {
+        width: 20rem;
+        padding: $cartGap;
+
+        & > *:not(:last-child) {
+          margin-bottom: $cartGap;
+        }
+      }
+
+      .cartItems {
+        max-height: 15rem;
+      }
+
+      .cartItem {
+        font-size: 1rem;
+
+        &:not(:last-child) {
+          margin-bottom: $cartGap;
+        }
+
+        .cartItemImage {
+          margin-right: $cartGap;
+        }
+
+        .isMuted {
+          font-size: 0.875em;
+        }
+      }
+
+      .cartSubtotal {
+        .label,
+        .value {
+          font-size: 1rem;
+        }
+      }
+
+      .cartFooter {
+        button {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../../assets/sass/variables';
+
+:global {
+  :local(.breadcrumbsNav) {
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb {
+      &:not(:last-child)::after {
+        content: '>';
+        display: inline-block;
+        margin: 0.5em;
+      }
+    }
+
+    .backButton,
+    .breadcrumbLink {
+      font-weight: 500;
+      display: inline-block;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    @media screen and (min-width: $screenMd) {
+      font-size: 1rem;
+    }
+  }
+}

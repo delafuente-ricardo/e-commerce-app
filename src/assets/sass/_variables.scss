@@ -1,0 +1,38 @@
+// Theme colors
+$primaryLight: hsl(20, 100%, 75%);
+$primary: hsl(20, 100%, 65%);
+$primaryDark: hsl(20, 100%, 55%);
+
+$secondaryLight: hsl(205, 5%, 30%);
+$secondary: hsl(205, 5%, 20%);
+$secondaryDark: hsl(205, 5%, 10%);
+
+$danger: hsl(347, 100%, 69%);
+$info: hsl(204, 82%, 57%);
+$warning: hsl(42, 100%, 67%);
+
+$borderColor: #dbdbdb;
+
+// Borders
+$dashedBorder: 1px dashed $borderColor;
+$solidBorder: 1px solid $borderColor;
+$dottedBorder: 1px dotted $borderColor;
+// Shadows
+$boxShadow: 0 1px 3px 0 hsla(0, 0%, 0%, 0.1),
+  0 1px 2px -1px hsla(0, 0%, 0%, 0.1);
+$boxShadowMd: 0 4px 6px -1px hsla(0, 0%, 0%, 0.1),
+  0 2px 4px -2px hsla(0, 0%, 0%, 0.1);
+$boxShadowLg: 0 10px 15px -3px hsla(0, 0%, 0%, 0.1),
+  0 4px 6px -4px hsla(0, 0%, 0%, 0.1);
+$textShadow: 0px 1px 3px hsla(0, 0, 0, 0.3);
+
+$gap1: 0.75rem;
+$gap2: 1rem;
+$gap3: 1.25rem;
+$gap4: 1.5rem;
+$gap5: 2rem;
+
+// Breakpoints
+$screenSm: 576px;
+$screenMd: 768px;
+$screenLg: 1024px;

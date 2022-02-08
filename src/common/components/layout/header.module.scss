@@ -1,0 +1,47 @@
+@import '../../../assets/sass/variables.scss';
+
+$navbarHeight: 4.5rem;
+
+:global {
+  :local(.header) {
+    margin-bottom: $navbarHeight;
+
+    .navbar {
+      background-color: white;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 50;
+      box-shadow: $boxShadow;
+
+      .navbarMenu {
+        height: $navbarHeight;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbarStart {
+        flex: 1;
+        display: flex;
+      }
+
+      .navbarEnd {
+        display: flex;
+      }
+
+      .navbarItem {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .brandLogo {
+        margin-right: 0.5rem;
+      }
+
+      .brandName {
+        font-weight: bold;
+      }
+    }
+  }
+}

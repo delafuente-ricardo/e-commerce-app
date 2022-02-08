@@ -1,0 +1,102 @@
+@import '../../assets/sass/variables';
+
+:global {
+  :local(.productPage) {
+    .productCover {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1rem;
+
+      .backdrop {
+        border-radius: 0.5rem;
+        background: $secondary;
+        position: absolute;
+        height: 65%;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .productImage {
+        max-width: 12rem;
+      }
+    }
+
+    .productName {
+      // Overwrite global .title
+      margin: 0.5rem 0;
+    }
+
+    .productDesc {
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cartActions {
+      margin-top: 2.5rem;
+    }
+
+    @media screen and (min-width: $screenMd) {
+      .productContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .productCover,
+      .cartActions {
+        margin-top: 1rem;
+        flex: 0 0 50%;
+        align-self: start;
+      }
+
+      .productCover {
+        padding-top: 2.5rem;
+        order: 1;
+
+        .backdrop {
+          height: 75%;
+        }
+      }
+
+      .productData {
+        flex: 0 0 50%;
+        font-size: 1rem;
+        order: 3;
+      }
+
+      .cartActions {
+        padding-left: $gap5;
+        order: 2;
+      }
+    }
+
+    @media screen and (min-width: $screenLg) {
+      .productContainer {
+        flex-wrap: nowrap;
+      }
+
+      .productCover,
+      .cartActions {
+        flex: 0 0 25%;
+      }
+
+      .productCover,
+      .productData {
+        margin-right: $gap5;
+      }
+
+      .productData {
+        order: 2;
+        flex: 1;
+      }
+
+      .cartActions {
+        padding: 0;
+        order: 3;
+      }
+    }
+  }
+}

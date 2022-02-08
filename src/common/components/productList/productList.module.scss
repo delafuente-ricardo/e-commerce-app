@@ -1,0 +1,94 @@
+@import '../../../assets/sass/variables.scss';
+
+:global {
+  :local(.productList) {
+    .itemLabel {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .itemDetails {
+      padding: 0.5rem 0;
+
+      .itemPrice {
+        font-weight: 500;
+      }
+
+      .itemWeight {
+        font-size: 0.8rem;
+      }
+    }
+
+    .itemFooter {
+      button {
+        font-size: 0.875rem;
+      }
+    }
+
+    .learnMore {
+      text-align: right;
+
+      .learnMoreLink {
+        display: inline-block;
+        padding: 0.75rem 0;
+        font-weight: 500;
+        font-size: 0.8rem;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    .emptyTemplate {
+      // Overwrite global
+      padding-top: 0rem;
+
+      .noResults {
+        font-size: 0.875rem;
+
+        strong {
+          font-weight: 500;
+          color: $secondaryLight;
+          display: block;
+        }
+      }
+    }
+
+    @media screen and (min-width: $screenMd) {
+      .itemLabel {
+        margin-bottom: 0.5rem;
+      }
+
+      .itemDetails {
+        padding: 0.75rem 0;
+
+        .itemWeight {
+          font-size: 0.875rem;
+        }
+      }
+
+      .itemFooter {
+        button {
+          font-size: 1rem;
+        }
+      }
+
+      .learnMore {
+        .learnMoreLink {
+          font-size: 0.875rem;
+        }
+      }
+
+      .emptyTemplate {
+        // Overwrite global
+        padding-top: 1rem;
+
+        .noResults {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

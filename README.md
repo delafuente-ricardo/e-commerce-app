@@ -1,6 +1,39 @@
-# Getting Started with Create React App
+## E-Commerce App
+## About the project
+Food Mart is a fictional platform for online grocery shopping, a theme that has grown tremendously in popularity since the start of Covid. As both a playground & portfolio application, many features have been deliberately over-engineered (while others remain relatively under developed) for testing, learning, and demonstration purposes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Visit {APP_URL} to see a working version of this application!
+
+### Ideas for the future:
+- Improved navigation
+- i18n support (in progress)
+- User authentication
+  - Ability for users to store:
+    - payment methods, addresses
+- Product suggestions based on:
+  - previous purchases, browsing history
+- Payment processing with Stripe
+- Tests... (in progress)
+- Dark mode
+
+## Getting started
+For those interested in cloning the application, you'll have to set up firebase:
+1. Replace the `firebaseConfig` object with your own; this object can be found in `/src/app/firebase.ts`.
+
+2. Create & seed a `products` collection on firestore. I've included sample data in `/src/features/products/productData.ts`. This project uses TypeScript; make sure to update types when making changes to the product model/schema.
+
+    I've also included a helper function to seed product data programmatically:
+    ```ts
+    import {seedProducts } from './common/utils/firebase';
+    import { products } from './features/products/productData';
+
+    seedProducts('products', products);
+    ```
+
+3. Update the `categories` array in `/src/features/categories/categoryData.ts` to reflect the items you've stored on firestore (step 2).
+4. Proceed with the standard create-react-app guide below:
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). defined below:
 
 ## Available Scripts
 

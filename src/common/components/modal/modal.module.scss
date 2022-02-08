@@ -1,0 +1,75 @@
+@import '../../../assets/sass/variables';
+
+:global {
+  :local(.modal) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+
+    // Center modal window
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modalContent {
+      background: white;
+      box-shadow: $boxShadowLg;
+      border-radius: 0.5rem;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+
+      // 0.75rem gap from edge, 560px max width
+      width: 35rem;
+      max-width: calc(100vw - 1.5rem);
+      height: auto;
+      max-height: calc(100vh - 1.5rem);
+      padding: 1.5rem;
+
+      // Bring forward to avoid conflicts with
+      // the overlay
+      z-index: 1;
+    }
+
+    .modalHeader,
+    .modalFooter {
+      flex: 0 0 auto;
+    }
+
+    .modalHeader {
+      font-size: 1rem;
+      font-weight: 600;
+
+      .close {
+        width: 2.25rem;
+        height: 2.25rem;
+        color: $secondary;
+        opacity: 0.5;
+        transition: 0.15s;
+
+        &:hover {
+          opacity: 1;
+          color: $primary;
+        }
+      }
+    }
+
+    .modalBody {
+      overflow: auto;
+      margin: 1rem 0 1.25rem;
+      border-width: 1px 0;
+      border-color: $borderColor;
+      border-style: dashed;
+      padding: 0.75rem 0 1rem;
+    }
+
+    @media screen and (min-width: $screenSm) {
+      .modalHeader {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../../assets/sass/variables.scss';
+
+:global {
+  :local(.cartControl) {
+    .itemPrice {
+      font-weight: 600;
+      margin-right: 0.5em;
+      font-size: 1rem;
+    }
+
+    .itemWeight {
+      font-size: 0.8rem;
+    }
+
+    .qtyControl {
+      // Overwrite globals
+      flex-direction: row;
+
+      .qtyControlButton {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+
+    .level {
+      margin-bottom: 0.75rem;
+    }
+
+    @media screen and (min-width: $screenMd) {
+      .itemWeight {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

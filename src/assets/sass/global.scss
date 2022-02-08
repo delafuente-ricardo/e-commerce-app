@@ -1,0 +1,240 @@
+@import './preflight.scss';
+@import './variables.scss';
+
+// General
+body {
+  color: $secondary;
+  min-width: 375px;
+}
+
+// Layout
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .content {
+    flex: 1;
+  }
+}
+
+.container {
+  max-width: 80rem;
+  margin: auto;
+  padding: 0 1.25rem;
+
+  @media screen and (min-width: $screenSm) {
+    padding: 0 1.5rem;
+  }
+
+  @media screen and (min-width: $screenMd) {
+    padding: 0 1.75rem;
+  }
+
+  @media screen and (min-width: $screenLg) {
+    padding: 0 2rem;
+  }
+}
+
+.level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .levelLeft,
+  .levelRight,
+  .levelItem {
+    display: flex;
+    align-items: center;
+
+    &:not(.isNarrow) {
+      flex: 1;
+    }
+  }
+
+  .levelLeft {
+    justify-content: start;
+  }
+
+  .levelRight {
+    justify-content: end;
+  }
+}
+
+// Grid-like view for listing
+// products & categories
+.collection {
+  .collectionList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -$gap1;
+  }
+
+  .collectionItem {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    max-width: 50%;
+    padding: $gap1;
+
+    .itemContainer {
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border: $solidBorder;
+
+      &.hasShadow {
+        box-shadow: $boxShadowMd;
+      }
+    }
+
+    .itemLabel {
+      color: $secondaryLight;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .itemImage {
+      max-width: 75%;
+    }
+  }
+
+  @media screen and (min-width: $screenSm) {
+    .collectionItem {
+      flex-basis: 33.33%;
+      max-width: 33.33%;
+    }
+  }
+
+  @media screen and (min-width: $screenMd) {
+    .collectionList {
+      margin: -$gap2;
+    }
+
+    .collectionItem {
+      flex-basis: 25%;
+      max-width: 25%;
+      padding: $gap2;
+    }
+  }
+
+  @media screen and (min-width: $screenLg) {
+    .collectionItem {
+      flex-basis: 20%;
+      max-width: 20%;
+
+      .itemLabel {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// Typography
+.title {
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  font-weight: 600;
+
+  @media screen and (min-width: $screenMd) {
+    font-size: 1.25rem;
+    margin: 0 0 1.25rem;
+  }
+}
+
+.isMuted {
+  color: hsl(180, 0%, 60%);
+}
+
+// Miscellaneous
+.qtyControl {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+
+  .qtyControlButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.4rem;
+    border-radius: 0.25rem;
+    height: 1.4rem;
+    background: $primary;
+    color: white;
+
+    &:not([disabled]):hover {
+      background: $primaryDark;
+    }
+
+    &[disabled] {
+      opacity: 0.3;
+    }
+  }
+
+  .qtyControlValue {
+    text-align: center;
+    width: 2rem;
+  }
+
+  @media screen and (min-width: $screenSm) {
+    .qtyControl {
+      flex-direction: row;
+
+      .qtyControlButton {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+  }
+}
+
+.emptyTemplate {
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.overlay {
+  background: hsla(0, 0%, 0%, 0.25);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+// Transitions
+.dialogEnter,
+.overlayEnter {
+  transition: 0.3s ease-out;
+}
+
+.dialogLeave,
+.overlayLeave {
+  transition: 0.15s ease-in;
+}
+
+.dialogEnterFrom,
+.dialogLeaveTo {
+  opacity: 0;
+  transform: translateY(-0.75rem);
+}
+
+.dialogLeaveFrom,
+.dialogEnterTo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlayEnterFrom,
+.overlayLeaveTo {
+  opacity: 0;
+}
+
+.overlayLeaveFrom,
+.overlayEnterTo {
+  opacity: 1;
+}
