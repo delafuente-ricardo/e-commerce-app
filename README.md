@@ -4,6 +4,8 @@ Food Mart is a fictional platform for online grocery shopping, a theme that has 
 
 Visit [http//food-mart.netlify.app](http://food-mart.netlify.app) to see a working version of this application!
 
+![Food Mart preview](https://firebasestorage.googleapis.com/v0/b/e-commerce-app-250.appspot.com/o/images%2Fapp-preview.png?alt=media&token=5209d4fa-ca7e-435d-990b-fe0906b58274)
+
 ### Ideas for the future:
 - Improved navigation
 - i18n support (in progress)
