@@ -99,6 +99,14 @@
             display: initial;
           }
         }
+
+        .itemQty {
+          width: 5rem;
+
+          .qtyControl {
+            flex-direction: row;
+          }
+        }
       }
     }
 
@@ -110,10 +118,6 @@
           height: 4.5rem;
           margin: 0.5rem 1.5rem 0.5rem 0.75rem;
           width: 4.5rem;
-        }
-
-        .itemQty {
-          width: 5rem;
         }
 
         .itemPrice {
