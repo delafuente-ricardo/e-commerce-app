@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { capitalize } from '../../utils/format';
 import classnames from 'classnames';
 import styles from './customButton.module.scss';
+import { capitalize } from 'lodash';
 
 interface ICustomButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

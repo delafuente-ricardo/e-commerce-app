@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useBreadcrumbs from './useBreadcrumbs.hook';
 import { IBreadcrumb } from '../../../types';
 import styles from './breadcrumbs.module.scss';
+import { capitalize } from 'lodash';
 
 interface IBreadcrumbsProps {
   items: IBreadcrumb[];
@@ -38,10 +39,12 @@ const Breadcrumbs: VFC<IBreadcrumbsProps> = ({ items }) => {
             {items.map(({ name, path }, i) => (
               <li key={i} className='breadcrumb'>
                 {!path || isActive(path) ? (
-                  <span className='breadcrumbText isMuted'>{name}</span>
+                  <span className='breadcrumbText isMuted'>
+                    {capitalize(name)}
+                  </span>
                 ) : (
                   <Link to={path} className='breadcrumbLink'>
-                    {name}
+                    {capitalize(name)}
                   </Link>
                 )}
               </li>
