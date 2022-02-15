@@ -2,13 +2,16 @@ import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { incrementCartItemQty, decrementCartItemQty } from './cartUtils';
 import { IProduct, ICartItem } from '../../types';
+import { remove } from 'lodash';
 
 export interface ICartState {
   items: ICartItem[];
+  savedItems: ICartItem[];
 }
 
 const initialState: ICartState = {
   items: [],
+  savedItems: [],
 };
 
 export const cartSlice = createSlice({
@@ -41,16 +44,52 @@ export const cartSlice = createSlice({
         return item.id !== action.payload.id;
       });
     },
+
+    saveItem: (state, action: PayloadAction<ICartItem>) => {
+      const savedItem = remove(state.items, (item) => {
+        return item.id === action.payload.id;
+      });
+
+      const { quantity, ...product } = savedItem[0];
+
+      state.savedItems = incrementCartItemQty(
+        state.savedItems,
+        product,
+        quantity
+      );
+    },
+
+    restoreItem: (state, action: PayloadAction<ICartItem>) => {
+      const savedItem = remove(state.savedItems, (item) => {
+        return item.id === action.payload.id;
+      });
+
+      if (savedItem?.length) {
+        const { quantity, ...product } = savedItem[0];
+
+        state.items = incrementCartItemQty(state.items, product, quantity);
+      }
+    },
   },
 });
 
-export const { addToCart, addBulkToCart, removeFromCart, clearFromCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  addBulkToCart,
+  removeFromCart,
+  clearFromCart,
+  saveItem,
+  restoreItem,
+} = cartSlice.actions;
 
 const selectCart = (state: RootState) => state.cart;
 
 export const selectCartItems = createSelector([selectCart], (cart) => {
   return cart.items;
+});
+
+export const selectSavedItems = createSelector([selectCart], (cart) => {
+  return cart.savedItems;
 });
 
 export const selectCartItemCount = createSelector([selectCartItems], (items) =>

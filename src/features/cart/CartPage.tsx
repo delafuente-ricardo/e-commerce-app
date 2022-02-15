@@ -6,6 +6,7 @@ import CustomButton from '../../common/components/button/CustomButton';
 import Modal from '../../common/components/modal/modal';
 import { formatCurrency } from '../../common/utils/format';
 import styles from './cartPage.module.scss';
+import { TrashIcon } from '@heroicons/react/outline';
 
 import {
   selectCartItems,
@@ -14,7 +15,9 @@ import {
   addToCart,
   removeFromCart,
   clearFromCart,
+  saveItem,
 } from './cartSlice';
+import SavedItems from './SavedItems';
 
 const CartPage: VFC = () => {
   const breadcrumbs = [{ name: 'Cart' }];
@@ -52,12 +55,21 @@ const CartPage: VFC = () => {
                         {weight?.value} {weight.unit}
                       </span>
 
-                      <span
-                        className='clearItem'
-                        onClick={() => dispatch(clearFromCart(item))}
-                      >
-                        Delete
-                      </span>
+                      <div className='itemSubActions'>
+                        <span
+                          className='saveItem'
+                          onClick={() => dispatch(saveItem(item))}
+                        >
+                          Save for later
+                        </span>
+
+                        <span
+                          className='clearItem'
+                          onClick={() => dispatch(clearFromCart(item))}
+                        >
+                          <TrashIcon className='linkIcon' /> Delete
+                        </span>
+                      </div>
                     </div>
 
                     <div className='itemQty'>
@@ -127,6 +139,8 @@ const CartPage: VFC = () => {
             <p className='isMuted'>Your cart is empty.</p>
           </div>
         )}
+
+        <SavedItems />
       </div>
     </section>
   );

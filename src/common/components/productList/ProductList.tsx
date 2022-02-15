@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import CustomButton from '../button/CustomButton';
 import SearchField from '../forms/SearchField';
 import useProductList from './useProductList.hook';
-import { formatCurrency } from '../../utils/format';
 import { IProduct } from '../../../types';
 import styles from './productList.module.scss';
+import ProductListItem from './ProductListItem';
 
 interface IProductListProps {
   title: string;
@@ -27,51 +27,23 @@ const ProductList: VFC<IProductListProps> = ({ title, items }) => {
 
         {filteredItems?.length ? (
           <ul className='collectionList'>
-            {filteredItems.map((item) => {
-              const { id, name, image, price, weight } = item;
+            {filteredItems.map((item) => (
+              <ProductListItem key={item.id} item={item}>
+                <CustomButton
+                  variant='primary'
+                  onClick={() => onAddToCart(item)}
+                  fullwidth
+                >
+                  Add to cart
+                </CustomButton>
 
-              return (
-                <li key={id} className='collectionItem'>
-                  <Link to={`/products/${item.id}`}>
-                    <span className='itemLabel'>{name}</span>
-
-                    <div className='itemContainer hasShadow'>
-                      <div className='imageWrapper'>
-                        <img src={image} className='itemImage' alt={name} />
-                      </div>
-                    </div>
+                <div className='learnMore'>
+                  <Link to={`/products/${item.id}`} className='learnMoreLink'>
+                    Learn more &gt;
                   </Link>
-
-                  <div className='itemFooter'>
-                    <div className='level itemDetails'>
-                      <span className='levelLeft itemPrice'>
-                        {formatCurrency(price)}
-                      </span>
-                      <span className='levelRight itemWeight isMuted'>
-                        {weight.value} {weight.unit}
-                      </span>
-                    </div>
-
-                    <CustomButton
-                      variant='primary'
-                      onClick={() => onAddToCart(item)}
-                      fullwidth
-                    >
-                      Add to cart
-                    </CustomButton>
-
-                    <div className='learnMore'>
-                      <Link
-                        to={`/products/${item.id}`}
-                        className='learnMoreLink'
-                      >
-                        Learn more &gt;
-                      </Link>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+                </div>
+              </ProductListItem>
+            ))}
           </ul>
         ) : (
           <div className='emptyTemplate'>

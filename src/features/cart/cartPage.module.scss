@@ -10,7 +10,7 @@
       padding: 0.75rem 0;
 
       &:first-child {
-        border-top-width: 1px;
+        border-top: $dashedBorder;
       }
 
       .itemImage {
@@ -37,13 +37,30 @@
         font-size: 0.875em;
       }
 
-      .clearItem {
-        padding: 0.25rem;
-        color: $danger;
-        font-size: 0.875em;
-        padding-left: 0;
+      .itemSubActions {
+        display: inline-flex;
         align-self: start;
-        cursor: pointer;
+        flex-direction: column;
+
+        .clearItem,
+        .saveItem {
+          font-size: 0.875em;
+          align-self: start;
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+
+        .linkIcon {
+          display: none;
+          width: 1.25em;
+          margin-right: 0.25em;
+          height: 1.25em;
+        }
       }
 
       .itemQty {
@@ -64,6 +81,24 @@
 
       .subtotalValue {
         font-weight: 600;
+      }
+    }
+
+    @media screen and (min-width: $screenSm) {
+      .cartItem {
+        .itemSubActions {
+          flex-direction: row;
+          margin: -0.25rem -0.4rem;
+
+          .saveItem,
+          .clearItem {
+            padding: 0.25rem 0.4rem;
+          }
+
+          .linkIcon {
+            display: initial;
+          }
+        }
       }
     }
 
