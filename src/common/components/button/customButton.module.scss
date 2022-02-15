@@ -13,7 +13,7 @@
     text-shadow: $textShadow;
     transition: 0.25s;
     box-shadow: $boxShadow;
-    
+
     &.isFullwidth {
       width: 100%;
     }
@@ -26,6 +26,10 @@
       &:hover {
         background-color: $primaryDark;
       }
+
+      &:active {
+        background-color: $primaryLight;
+      }
     }
 
     &.isSecondary {
@@ -34,6 +38,10 @@
 
       &:hover {
         background-color: $secondaryDark;
+      }
+
+      &:active {
+        background-color: $secondaryLight;
       }
     }
 
